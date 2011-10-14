@@ -1,0 +1,13 @@
+author: zml2008
+database: false
+description: Provides additional clientside functionality
+generator: http://dinnerbone.com/minecraft/tools/pluginator/
+main: com.zml.bukkitclientgui.ClientGuiPlugin
+name: BukkitClientGui
+startup: postworld
+version: ${project.version}
+
+commands:
+    clientgui:
+        description: "The main command for client communication to server"
+        usage: "/<Command> <init>"
