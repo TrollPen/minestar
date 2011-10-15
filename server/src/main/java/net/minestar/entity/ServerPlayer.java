@@ -17,4 +17,8 @@ public class ServerPlayer extends Player {
     public Session getSession() {
         return session;
     }
+
+    public void sendMessage(String message) {
+        
+    }
 }

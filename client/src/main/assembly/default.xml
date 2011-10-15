@@ -27,13 +27,14 @@
     <formats>
         <format>zip</format>
     </formats>
+    <files>
+    <file>
+      <source>${project.build.directory}/${artifactId}-${project.version}.jar</source>
+      <destName>MineStar.jar</destName>
+      <outputDirectory>/</outputDirectory>
+      <filtered>false</filtered>
+    </file>
+  </files>
     <fileSets>
-        <fileSet>
-            <directory>${project.build.outputDirectory}</directory>
-            <includes>
-                <include>*.class</include>
-            </includes>
-            <outputDirectory>/</outputDirectory>
-        </fileSet>
     </fileSets>
 </assembly>

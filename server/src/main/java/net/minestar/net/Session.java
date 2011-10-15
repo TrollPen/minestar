@@ -6,7 +6,9 @@ import java.util.*;
 import java.util.logging.Level;
 
 import net.minestar.GameCore;
+import net.minestar.Server;
 import net.minestar.entity.Player;
+import net.minestar.entity.ServerPlayer;
 import net.minestar.msg.KickMessage;
 import net.minestar.msg.Message;
 import net.minestar.net.handler.HandlerLookupService;
@@ -53,7 +55,7 @@ public final class Session {
     /**
      * The server this session belongs to.
      */
-    private final GameCore server;
+    private final Server server;
 
     /**
      * The Random for this session
@@ -102,7 +104,7 @@ public final class Session {
      * @param server The server this session belongs to.
      * @param channel The channel associated with this session.
      */
-    public Session(GameCore server, Channel channel) {
+    public Session(Server server, Channel channel) {
         this.server = server;
         this.channel = channel;
     }
@@ -137,12 +139,12 @@ public final class Session {
      * @throws IllegalStateException if there is already a player associated
      * with this session.
      */
-    public void setPlayer(Player player) {
+    public void setPlayer(ServerPlayer player) {
         if (this.player != null)
             throw new IllegalStateException();
 
         this.player = player;
-        PlayerLoginEvent event = EventFactory.onPlayerLogin(player);
+        /* PlayerLoginEvent event = EventFactory.onPlayerLogin(player);
         if (event.getResult() != PlayerLoginEvent.Result.ALLOWED) {
             disconnect(event.getKickMessage(), true);
             return;
@@ -152,7 +154,7 @@ public final class Session {
         String message = EventFactory.onPlayerJoin(player).getJoinMessage();
         if (message != null) {
             server.broadcastMessage(message);
-        }
+        } */
 
     }
 
@@ -172,7 +174,7 @@ public final class Session {
         if (timeoutCounter >= TIMEOUT_TICKS)
             if (pingMessageId == 0) {
                 pingMessageId = new Random().nextInt();
-                send(new PingMessage(pingMessageId));
+                // send(new PingMessage(pingMessageId));
                 timeoutCounter = 0;
             } else {
                 disconnect("Timed out");
@@ -206,7 +208,7 @@ public final class Session {
      */
     public void disconnect(String reason, boolean overrideKick) {
         if (player != null && !overrideKick) {
-            PlayerKickEvent event = EventFactory.onPlayerKick(player, reason);
+            /* PlayerKickEvent event = EventFactory.onPlayerKick(player, reason);
             if (event.isCancelled()) {
                 return;
             }
@@ -215,7 +217,7 @@ public final class Session {
 
             if (event.getLeaveMessage() != null) {
                 server.broadcastMessage(event.getLeaveMessage());
-            }
+            } */
             
             getServer().getLogger().log(Level.INFO, "Player {0} disconected: {1}", new Object[]{player.getName(), reason});
         }
