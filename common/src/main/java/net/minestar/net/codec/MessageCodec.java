@@ -1,8 +1,8 @@
-package net.glowstone.net.codec;
+package net.minestar.net.codec;
 
 import java.io.IOException;
 
-import net.glowstone.msg.Message;
+import net.minestar.msg.Message;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 

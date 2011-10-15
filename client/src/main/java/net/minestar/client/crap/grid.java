@@ -1,3 +1,5 @@
+package net.minestar.client.crap;
+
 import java.awt.*;
 import java.applet.Applet; 
 

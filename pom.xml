@@ -38,6 +38,15 @@
       <id>zml-jenkins</id>
       <url>http://ci.zachsthings.com/plugin/repository/everything</url>
     </repository>
+      <repository>
+            <id>jboss</id>
+            <name>JBoss Nexus</name>
+            <layout>default</layout>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
   </repositories>
     <build>
         <plugins>
@@ -52,6 +61,16 @@
             </plugin>
         </plugins>
     </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>3.2.4.Final</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
   
   <!-- Modules -->
   <modules>

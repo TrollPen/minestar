@@ -1,3 +1,4 @@
+package net.minestar.client.crap;
 
 public class tree {
 	Boolean standing = true;

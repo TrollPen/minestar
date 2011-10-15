@@ -31,10 +31,6 @@
     <version>1.0-SNAPSHOT</version>
     <name>MineStar-server</name>
     <repositories>
-        <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/artifactory/repo</url>
-        </repository>
 
     </repositories>
     <build>
@@ -68,5 +64,10 @@
         </plugins>
     </build>
     <dependencies>
+        <dependency>
+            <groupId>${project.parent.groupId}</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

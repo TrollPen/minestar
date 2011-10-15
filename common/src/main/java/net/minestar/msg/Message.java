@@ -1,4 +1,4 @@
-package net.glowstone.msg;
+package net.minestar.msg;
 
 public abstract class Message {
 

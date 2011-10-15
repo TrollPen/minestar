@@ -1,3 +1,4 @@
+package net.minestar.client.crap;
 
 public class chunk {
 	int maxMountain = 1;

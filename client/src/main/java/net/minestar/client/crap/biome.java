@@ -1,3 +1,4 @@
+package net.minestar.client.crap;
 
 public class biome {
 	biome Grassland = new biome();
